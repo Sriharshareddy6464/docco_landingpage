@@ -1,0 +1,6 @@
+{
+  "name": "Docco Case Study",
+  "description": "Engineering Case Study for Docco - Real-Time Doctor Consultation Web Application on AWS Infrastructure",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
