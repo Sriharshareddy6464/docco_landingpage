@@ -20,7 +20,7 @@ export const ProductInActionSection: React.FC = () => {
   const activeStep = CONSULTATION_SIMULATION_STEPS[currentStepIdx];
 
   return (
-    <section id="demo" className="py-24 px-4 sm:px-6 lg:px-8 border-t border-slate-800 bg-slate-950 relative">
+    <section id="demo" className="py-24 px-4 sm:px-6 lg:px-8 bg-[#0A0A0B] relative">
       <div className="max-w-7xl mx-auto space-y-16">
         {/* Section Header */}
         <div className="space-y-4 max-w-3xl">
@@ -39,7 +39,7 @@ export const ProductInActionSection: React.FC = () => {
         </div>
 
         {/* Main Demonstration Viewer Box */}
-        <div className="glass-panel rounded-2xl border border-white/10 overflow-hidden shadow-2xl">
+        <div className="max-w-6xl mx-auto glass-panel rounded-2xl border border-white/10 overflow-hidden shadow-2xl">
           {/* Top Control Bar */}
           <div className="p-4 bg-white/5 border-b border-white/10 flex flex-wrap items-center justify-between gap-4 text-xs font-mono">
             <div className="flex items-center gap-3">
@@ -75,9 +75,9 @@ export const ProductInActionSection: React.FC = () => {
           </div>
 
           {/* Interactive Screen Display */}
-          <div className="p-6 bg-slate-950 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          <div className="p-6 bg-slate-950 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
             {/* Split Screen Video View (Patient & Doctor Feeds) */}
-            <div className="lg:col-span-8 space-y-4">
+            <div className="lg:col-span-7 space-y-4">
               <div className="relative rounded-xl border border-slate-800 bg-slate-900 overflow-hidden aspect-video shadow-2xl">
                 {/* Status Bar Overlay */}
                 <div className="absolute top-3 left-3 right-3 z-10 flex items-center justify-between text-[11px] font-mono">
@@ -94,7 +94,16 @@ export const ProductInActionSection: React.FC = () => {
 
                 {/* Primary Stream Display according to step */}
                 <div className="w-full h-full relative flex items-center justify-center bg-slate-950">
-                  {currentStepIdx < 4 ? (
+                  {currentStepIdx === 0 ? (
+                    <video
+                      src="/videoproof/auth.mp4"
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                      className="w-full h-full object-cover"
+                    />
+                  ) : currentStepIdx < 4 ? (
                     /* Pre-call Application & Dashboard Interface View */
                     <div className="w-full h-full p-6 flex flex-col justify-between bg-gradient-to-br from-slate-900 via-slate-950 to-slate-900">
                       <div className="flex items-center justify-between pt-8 border-b border-slate-800 pb-3">
@@ -129,11 +138,22 @@ export const ProductInActionSection: React.FC = () => {
                     /* Active WebRTC Live Video Stream */
                     <div className="w-full h-full relative">
                       {!isVideoDisabled ? (
-                        <img
-                          src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=1200&auto=format&fit=crop"
-                          alt="Live Doctor Stream"
-                          className="w-full h-full object-cover"
-                        />
+                        currentStepIdx === 4 ? (
+                          <video
+                            src="/videoproof/execute.mp4"
+                            autoPlay
+                            loop
+                            muted
+                            playsInline
+                            className="w-full h-full object-cover"
+                          />
+                        ) : (
+                          <img
+                            src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=1200&auto=format&fit=crop"
+                            alt="Live Doctor Stream"
+                            className="w-full h-full object-cover"
+                          />
+                        )
                       ) : (
                         <div className="w-full h-full flex flex-col items-center justify-center bg-slate-900 text-slate-500 text-xs font-mono">
                           <VideoOff className="w-8 h-8 mb-2 text-slate-600" />
@@ -207,10 +227,37 @@ export const ProductInActionSection: React.FC = () => {
               <p className="text-center text-xs font-mono text-slate-400">
                 A real browser-to-browser consultation running through Docco.
               </p>
+
+              {/* Active Step Technical Detail Box (Broader strip) */}
+              {activeStep.mediaDetails && (
+                <div className="p-4 rounded-xl bg-white/5 border border-white/10 space-y-2 text-xs font-mono w-full">
+                  <span className="text-[10px] text-slate-500 uppercase tracking-wider block font-bold">
+                    Active Step Telemetry
+                  </span>
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-[11px]">
+                    <div>
+                      <span className="text-slate-400 block">Resolution:</span>
+                      <span className="text-[#FF9900] font-bold">{activeStep.mediaDetails.resolution || 'N/A'}</span>
+                    </div>
+                    <div>
+                      <span className="text-slate-400 block">Transport Protocol:</span>
+                      <span className="text-emerald-400 font-bold">{activeStep.mediaDetails.codec || 'N/A'}</span>
+                    </div>
+                    <div>
+                      <span className="text-slate-400 block">Signaling RTT:</span>
+                      <span className="text-[#FF9900] font-bold">{activeStep.mediaDetails.latency || 'N/A'}</span>
+                    </div>
+                    <div>
+                      <span className="text-slate-400 block">Stream Bitrate:</span>
+                      <span className="text-emerald-400 font-bold">{activeStep.mediaDetails.bitrate || 'N/A'}</span>
+                    </div>
+                  </div>
+                </div>
+              )}
             </div>
 
             {/* Interactive Timeline Stepper Panel */}
-            <div className="lg:col-span-4 space-y-3">
+            <div className="lg:col-span-5 space-y-3">
               <h3 className="text-xs font-mono font-bold uppercase tracking-wider text-slate-400 mb-2">
                 Workflow Step Progression
               </h3>
@@ -258,33 +305,6 @@ export const ProductInActionSection: React.FC = () => {
                   );
                 })}
               </div>
-
-              {/* Active Step Technical Detail Box */}
-              {activeStep.mediaDetails && (
-                <div className="p-3 rounded-xl bg-white/5 border border-white/10 space-y-2 text-xs font-mono">
-                  <span className="text-[10px] text-slate-500 uppercase tracking-wider block font-bold">
-                    Active Step Telemetry
-                  </span>
-                  <div className="grid grid-cols-2 gap-2 text-[11px]">
-                    <div>
-                      <span className="text-slate-400 block">Resolution:</span>
-                      <span className="text-[#FF9900] font-bold">{activeStep.mediaDetails.resolution || 'N/A'}</span>
-                    </div>
-                    <div>
-                      <span className="text-slate-400 block">Transport Protocol:</span>
-                      <span className="text-emerald-400 font-bold">{activeStep.mediaDetails.codec || 'N/A'}</span>
-                    </div>
-                    <div>
-                      <span className="text-slate-400 block">Signaling RTT:</span>
-                      <span className="text-[#FF9900] font-bold">{activeStep.mediaDetails.latency || 'N/A'}</span>
-                    </div>
-                    <div>
-                      <span className="text-slate-400 block">Stream Bitrate:</span>
-                      <span className="text-emerald-400 font-bold">{activeStep.mediaDetails.bitrate || 'N/A'}</span>
-                    </div>
-                  </div>
-                </div>
-              )}
             </div>
           </div>
         </div>

@@ -4,7 +4,7 @@ import { FEATURE_CARDS } from '../data/caseStudyData';
 
 export const WhatIsDoccoSection: React.FC = () => {
   return (
-    <section id="product" className="py-24 px-4 sm:px-6 lg:px-8 border-t border-slate-800/80 bg-slate-950/60 relative">
+    <section id="product" className="py-24 px-4 sm:px-6 lg:px-8 bg-[#0A0A0B] relative">
       <div className="max-w-7xl mx-auto space-y-16">
         {/* Section Header */}
         <div className="space-y-4 max-w-3xl">
@@ -34,10 +34,11 @@ export const WhatIsDoccoSection: React.FC = () => {
                 Fragmented Telehealth Interactions
               </h3>
               <p className="text-slate-300 text-sm leading-relaxed">
-                Traditional doctor-patient consultation workflows often involve multiple disconnected steps—third-party video links, email scheduling, manual intake forms, and external payment or documentation portals.
+                Traditional doctor-patient consultation workflows often stuck with major coorporations and involve multiple disconnected steps—third-party video links, email scheduling, manual intake forms, and external payment or documentation portals. Access to online doctor consultations is often tied to subscriptions, platform fees, or fragmented patient records.
               </p>
               <p className="text-slate-300 text-sm leading-relaxed">
-                Docco explores how those interactions can be brought together into a single, unified browser experience powered by direct browser WebRTC media streams and backend infrastructure.
+                Docco provides an open consultation platform where independent doctors can consult patients without upfront fees or subscriptions, using a commission-based model.
+                Each consultation can generate a digital prescription linked to the patient profile, allowing patients to access their medical consultation history wherever they log in.
               </p>
             </div>
 
@@ -121,8 +122,8 @@ export const WhatIsDoccoSection: React.FC = () => {
               card.icon === 'Video'
                 ? Video
                 : card.icon === 'Workflow'
-                ? Workflow
-                : Cloud;
+                  ? Workflow
+                  : Cloud;
 
             return (
               <div

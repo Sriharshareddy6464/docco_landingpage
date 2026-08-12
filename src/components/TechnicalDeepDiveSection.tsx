@@ -4,7 +4,7 @@ import { DEEP_DIVE_TOPICS, CONTACT_LINKS } from '../data/caseStudyData';
 
 export const TechnicalDeepDiveSection: React.FC = () => {
   return (
-    <section id="deep-dive" className="py-24 px-4 sm:px-6 lg:px-8 border-t border-slate-800 bg-slate-950/80 relative">
+    <section id="deep-dive" className="py-24 px-4 sm:px-6 lg:px-8 bg-[#0A0A0B] relative">
       <div className="max-w-7xl mx-auto space-y-16">
         {/* Section Header */}
         <div className="space-y-4 max-w-3xl">
@@ -79,7 +79,7 @@ export const TechnicalDeepDiveSection: React.FC = () => {
               {/* CTA Button */}
               <div className="pt-4 border-t border-white/10 flex flex-wrap items-center justify-between gap-4">
                 <span className="text-xs font-mono text-slate-400">
-                  Published on Medium • Author: AWS DevOps Engineer
+                  Published on Medium • Author: Adapala Sriharsha Reddy | AWS DevOps Engineer | Cloud Architect
                 </span>
 
                 <a

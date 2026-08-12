@@ -8,7 +8,7 @@ export const EvolutionSection: React.FC = () => {
   const selectedStage = TIMELINE_STAGES[selectedStageIdx];
 
   return (
-    <section id="evolution" className="py-24 px-4 sm:px-6 lg:px-8 border-t border-slate-800 bg-slate-950 relative">
+    <section id="evolution" className="py-24 px-4 sm:px-6 lg:px-8 bg-[#0A0A0B] relative">
       <div className="max-w-7xl mx-auto space-y-16">
         {/* Section Header */}
         <div className="space-y-4 max-w-3xl">

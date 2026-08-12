@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Network, Server, Database, ShieldCheck, Activity, Globe, Zap, Lock, Unlock, GitFork, Box, Cpu, LineChart, KeyRound, ShieldAlert, Layers } from 'lucide-react';
+import { Network, Server, Database, ShieldCheck, Activity, Globe, Zap, Lock, Unlock, GitFork, Box, Cpu, LineChart, KeyRound, ShieldAlert, Layers, ArrowRight, ArrowDown } from 'lucide-react';
 import { AWS_LAYERS } from '../data/caseStudyData';
 import { AwsLayer } from '../types';
 
@@ -10,13 +10,13 @@ export const AwsArchitectureSection: React.FC = () => {
   const selectedLayer = AWS_LAYERS.find((l) => l.id === selectedLayerId) || AWS_LAYERS[1];
 
   return (
-    <section id="architecture" className="py-24 px-4 sm:px-6 lg:px-8 border-t border-slate-800 bg-slate-950/90 relative">
+    <section id="architecture" className="py-24 px-4 sm:px-6 lg:px-8 bg-[#0A0A0B] relative">
       <div className="max-w-7xl mx-auto space-y-16">
         {/* Section Header */}
         <div className="space-y-4 max-w-3xl">
           <div className="flex items-center gap-2">
             <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#FF9900]">
-              05 / INFRASTRUCTURE
+              05 / CLOUD ARCHITECTURE
             </span>
             <span className="h-px w-12 bg-[#FF9900]/40" />
           </div>
@@ -43,30 +43,44 @@ export const AwsArchitectureSection: React.FC = () => {
           {/* Interactive Topology Container */}
           <div className="space-y-8 py-2">
             {/* Edge Level */}
-            <div className="p-4 rounded-xl bg-white/5 border border-white/10 space-y-3">
+            <div className="p-4 rounded-xl bg-[#FF9900]/5 border-2 border-[#FF9900]/40 space-y-3 shadow-lg shadow-[#FF9900]/5">
               <span className="text-[10px] font-mono text-[#FF9900] font-bold uppercase tracking-wider block">
-                01. EDGE & ENTRY LAYER (PUBLIC INTERNET)
+                EDGE & ENTRY LAYER (PUBLIC INTERNET)
               </span>
-              <div className="grid grid-cols-1 sm:grid-cols-4 gap-3 text-xs font-mono">
-                <div className="p-3 rounded-lg bg-black/40 border border-white/10 text-center hover:border-[#FF9900] transition-colors">
+              <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-xs font-mono">
+                <div className="p-3 rounded-lg bg-black/40 border border-white/10 text-center hover:border-[#FF9900] transition-colors w-full md:flex-1">
                   <Globe className="w-5 h-5 text-[#FF9900] mx-auto mb-1" />
-                  <span className="font-bold text-white block">Amazon Route 53</span>
+                  <span className="font-bold text-white block">GoDaddy</span>
                   <span className="text-[10px] text-slate-400">DNS Resolution</span>
                 </div>
-                <div className="p-3 rounded-lg bg-black/40 border border-white/10 text-center hover:border-[#FF9900] transition-colors">
+                <div className="text-[#FF9900] font-bold text-lg md:rotate-0 rotate-90 shrink-0">
+                  <ArrowRight className="w-4 h-4" />
+                </div>
+                <div className="p-3 rounded-lg bg-black/40 border border-white/10 text-center hover:border-[#FF9900] transition-colors w-full md:flex-1">
                   <Zap className="w-5 h-5 text-[#FF9900] mx-auto mb-1" />
                   <span className="font-bold text-white block">CloudFront CDN</span>
                   <span className="text-[10px] text-slate-400">Edge Static Caching</span>
                 </div>
-                <div className="p-3 rounded-lg bg-black/40 border border-white/10 text-center hover:border-[#FF9900] transition-colors">
+                <div className="text-[#FF9900] font-bold text-lg md:rotate-0 rotate-90 shrink-0">
+                  <ArrowRight className="w-4 h-4" />
+                </div>
+                <div className="p-3 rounded-lg bg-black/40 border border-white/10 text-center hover:border-[#FF9900] transition-colors w-full md:flex-1">
                   <Database className="w-5 h-5 text-[#FF9900] mx-auto mb-1" />
                   <span className="font-bold text-white block">Amazon S3</span>
                   <span className="text-[10px] text-slate-400">Frontend Web Build</span>
                 </div>
-                <div className="p-3 rounded-lg bg-black/40 border border-white/10 text-center hover:border-[#FF9900] transition-colors">
+                <div className="text-[#FF9900] font-bold text-lg md:rotate-0 rotate-90 shrink-0">
+                  <ArrowRight className="w-4 h-4" />
+                </div>
+                <div className="relative p-3 rounded-lg bg-black/40 border border-white/10 text-center hover:border-[#FF9900] transition-colors w-full md:flex-1">
                   <ShieldCheck className="w-5 h-5 text-[#FF9900] mx-auto mb-1" />
                   <span className="font-bold text-white block">AWS ACM Certificate</span>
                   <span className="text-[10px] text-slate-400">Managed SSL/TLS</span>
+                  
+                  {/* Arrow Down below ACM */}
+                  <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 text-[#FF9900] font-bold z-10 hidden md:block">
+                    <ArrowDown className="w-4 h-4 animate-bounce" />
+                  </div>
                 </div>
               </div>
             </div>
@@ -149,9 +163,9 @@ export const AwsArchitectureSection: React.FC = () => {
             </div>
 
             {/* Observability Stack */}
-            <div className="p-4 rounded-xl bg-white/5 border border-white/10 space-y-3">
+            <div className="p-4 rounded-xl bg-[#FF9900]/5 border-2 border-[#FF9900]/40 space-y-3 shadow-lg shadow-[#FF9900]/5">
               <span className="text-[10px] font-mono text-[#FF9900] font-bold uppercase tracking-wider block">
-                06. OBSERVABILITY & TELEMETRY STACK
+                OBSERVABILITY & TELEMETRY STACK
               </span>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs font-mono">
                 <div className="p-3 rounded-lg bg-black/40 border border-white/10 text-center">
@@ -187,11 +201,10 @@ export const AwsArchitectureSection: React.FC = () => {
                 <button
                   key={layer.id}
                   onClick={() => setSelectedLayerId(layer.id)}
-                  className={`px-4 py-2.5 rounded-xl font-mono text-xs font-bold transition-all cursor-pointer ${
-                    isActive
-                      ? 'bg-[#FF9900] text-black shadow-lg shadow-[#FF9900]/20'
-                      : 'bg-white/5 text-slate-300 border border-white/10 hover:bg-white/10'
-                  }`}
+                  className={`px-4 py-2.5 rounded-xl font-mono text-xs font-bold transition-all cursor-pointer ${isActive
+                    ? 'bg-[#FF9900] text-black shadow-lg shadow-[#FF9900]/20'
+                    : 'bg-white/5 text-slate-300 border border-white/10 hover:bg-white/10'
+                    }`}
                 >
                   {layer.name}
                 </button>

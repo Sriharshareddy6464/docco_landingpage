@@ -8,7 +8,7 @@ export const EngineeringWorkSection: React.FC = () => {
   const activeChallenge = ENGINEERING_CHALLENGES.find((c) => c.id === activeChallengeId) || ENGINEERING_CHALLENGES[0];
 
   return (
-    <section id="engineering" className="py-24 px-4 sm:px-6 lg:px-8 border-t border-slate-800 bg-slate-950/80 relative">
+    <section id="engineering" className="py-24 px-4 sm:px-6 lg:px-8 bg-[#0A0A0B] relative">
       <div className="max-w-7xl mx-auto space-y-16">
         {/* Section Header */}
         <div className="space-y-4 max-w-3xl">

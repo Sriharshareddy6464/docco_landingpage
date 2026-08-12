@@ -14,13 +14,13 @@ export const GallerySection: React.FC = () => {
       : GALLERY_ITEMS.filter((item) => item.category === activeCategory);
 
   return (
-    <section id="gallery" className="py-24 px-4 sm:px-6 lg:px-8 border-t border-slate-800 bg-slate-950 relative">
+    <section id="gallery" className="py-24 px-4 sm:px-6 lg:px-8 bg-[#0A0A0B] relative">
       <div className="max-w-7xl mx-auto space-y-16">
         {/* Section Header */}
         <div className="space-y-4 max-w-3xl">
           <div className="flex items-center gap-2">
             <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#FF9900]">
-              08 / VISUALS
+              08 / GALLERY
             </span>
             <span className="h-px w-12 bg-[#FF9900]/40" />
           </div>
@@ -36,46 +36,42 @@ export const GallerySection: React.FC = () => {
         <div className="flex flex-wrap items-center gap-2 font-mono text-xs">
           <button
             onClick={() => setActiveCategory('all')}
-            className={`px-4 py-2 rounded-xl font-bold transition-all cursor-pointer ${
-              activeCategory === 'all'
-                ? 'bg-[#FF9900] text-black shadow-md'
-                : 'bg-white/5 text-slate-300 border border-white/10 hover:bg-white/10'
-            }`}
+            className={`px-4 py-2 rounded-xl font-bold transition-all cursor-pointer ${activeCategory === 'all'
+              ? 'bg-[#FF9900] text-black shadow-md'
+              : 'bg-white/5 text-slate-300 border border-white/10 hover:bg-white/10'
+              }`}
           >
             ALL EVIDENCE ({GALLERY_ITEMS.length})
           </button>
 
           <button
             onClick={() => setActiveCategory('application')}
-            className={`px-4 py-2 rounded-xl font-bold transition-all cursor-pointer ${
-              activeCategory === 'application'
-                ? 'bg-[#FF9900] text-black shadow-md'
-                : 'bg-white/5 text-slate-300 border border-white/10 hover:bg-white/10'
-            }`}
+            className={`px-4 py-2 rounded-xl font-bold transition-all cursor-pointer ${activeCategory === 'application'
+              ? 'bg-[#FF9900] text-black shadow-md'
+              : 'bg-white/5 text-slate-300 border border-white/10 hover:bg-white/10'
+              }`}
           >
-            01. APPLICATION ({GALLERY_ITEMS.filter((i) => i.category === 'application').length})
+            APPLICATION ({GALLERY_ITEMS.filter((i) => i.category === 'application').length})
           </button>
 
           <button
             onClick={() => setActiveCategory('infrastructure')}
-            className={`px-4 py-2 rounded-xl font-bold transition-all cursor-pointer ${
-              activeCategory === 'infrastructure'
-                ? 'bg-[#FF9900] text-black shadow-md'
-                : 'bg-white/5 text-slate-300 border border-white/10 hover:bg-white/10'
-            }`}
+            className={`px-4 py-2 rounded-xl font-bold transition-all cursor-pointer ${activeCategory === 'infrastructure'
+              ? 'bg-[#FF9900] text-black shadow-md'
+              : 'bg-white/5 text-slate-300 border border-white/10 hover:bg-white/10'
+              }`}
           >
-            02. INFRASTRUCTURE ({GALLERY_ITEMS.filter((i) => i.category === 'infrastructure').length})
+            INFRASTRUCTURE ({GALLERY_ITEMS.filter((i) => i.category === 'infrastructure').length})
           </button>
 
           <button
             onClick={() => setActiveCategory('observability')}
-            className={`px-4 py-2 rounded-xl font-bold transition-all cursor-pointer ${
-              activeCategory === 'observability'
-                ? 'bg-[#FF9900] text-black shadow-md'
-                : 'bg-white/5 text-slate-300 border border-white/10 hover:bg-white/10'
-            }`}
+            className={`px-4 py-2 rounded-xl font-bold transition-all cursor-pointer ${activeCategory === 'observability'
+              ? 'bg-[#FF9900] text-black shadow-md'
+              : 'bg-white/5 text-slate-300 border border-white/10 hover:bg-white/10'
+              }`}
           >
-            03. OBSERVABILITY ({GALLERY_ITEMS.filter((i) => i.category === 'observability').length})
+            OBSERVABILITY ({GALLERY_ITEMS.filter((i) => i.category === 'observability').length})
           </button>
         </div>
 

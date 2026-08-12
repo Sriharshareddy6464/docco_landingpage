@@ -22,15 +22,15 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
         {/* Top Eyebrow & Badges */}
         <div className="flex flex-wrap items-center gap-3 mb-6">
           <span className="px-3 py-1 text-xs font-mono tracking-widest text-[#FF9900] bg-[#FF9900]/10 border border-[#FF9900]/30 rounded-md uppercase font-semibold">
-            ENGINEERING CASE STUDY
+            PROJECT CASE STUDY
           </span>
-          
+
           <div className="flex items-center gap-2 px-3 py-1 bg-[#FF9900]/10 border border-[#FF9900]/30 rounded-md text-[#FF9900] text-xs font-mono font-medium">
             <span className="w-2 h-2 rounded-full bg-[#FF9900] pulse-live" />
             <span className="font-semibold">AWS DEVOPS ENGINEER</span>
           </div>
 
-          <span className="text-xs font-mono text-slate-400 hidden sm:inline-block">
+          <span className="text-xs font-mono text-slate-400 hidden sm:inline-block items-right text-right">
             Infrastructure • Deployment • Networking • Security • Observability
           </span>
         </div>
@@ -43,11 +43,11 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             </h1>
 
             <p className="text-2xl sm:text-3xl font-semibold text-slate-200 tracking-tight leading-snug">
-              Real-Time Doctor Consultation, Built for the Web.
+              Real-Time Doctor Consultation, Built not just for the Web .
             </p>
 
             <p className="text-lg text-slate-300 leading-relaxed max-w-2xl font-normal">
-              Docco is a real-time doctor consultation platform that combines browser-based WebRTC communication with a modern web application stack and AWS-powered infrastructure.
+              Docco is a real-time doctor consultation platform that combines browser-based WebRTC communication with a modern web application stack and AWS-powered infrastructure as well as react native for mobile applications.
             </p>
 
             {/* CTAs */}
@@ -57,7 +57,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                 className="px-6 py-3.5 bg-[#FF9900] hover:bg-[#e68a00] text-black font-bold text-sm tracking-wide rounded-lg flex items-center gap-2 shadow-lg shadow-[#FF9900]/20 transition-all cursor-pointer"
               >
                 <Play className="w-4 h-4 fill-black" />
-                WATCH THE APPLICATION
+                WATCH PROTOTYPE DEMO
               </button>
 
               <button
@@ -75,7 +75,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                 className="px-5 py-3.5 text-slate-300 hover:text-[#FF9900] font-mono text-xs tracking-wide flex items-center gap-1.5 transition-colors"
               >
                 <FileText className="w-4 h-4 text-[#FF9900]" />
-                READ CASE STUDY <span className="text-slate-500">↗</span>
+                Medium Blog <span className="text-slate-500">↗</span>
               </a>
             </div>
 
@@ -184,7 +184,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           onClick={onWatchClick}
           className="text-slate-500 hover:text-[#FF9900] transition-colors flex flex-col items-center gap-1 text-xs font-mono cursor-pointer"
         >
-          <span>EXPLORE PRODUCT & ARCHITECTURE</span>
+          <span>EXPLORE FURTHER </span>
           <ChevronDown className="w-4 h-4 animate-bounce" />
         </button>
       </div>

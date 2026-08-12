@@ -12,11 +12,15 @@ import {
 } from '../types';
 
 export const HERO_META: TechnicalMetaTag[] = [
-  { label: 'Real-Time Communication', value: 'WebRTC (P2P)' },
   { label: 'Frontend', value: 'React + Vite' },
   { label: 'Backend', value: 'Node.js + Express' },
   { label: 'Database', value: 'PostgreSQL + Prisma' },
-  { label: 'Infrastructure', value: 'AWS (EC2 / ALB / RDS)' },
+  { label: 'Real-Time Communication', value: 'WebRTC (P2P)' },
+  { label: 'Mobile Applications', value: 'React Native' },
+  { label: 'Versioning & Deployment', value: 'GitHub , Github actions' },
+  { label: 'Production tools', value: 'DOCKER , AWS , GoDaddy Domain ' },
+  { label: 'Platform & Microservices', value: 'AWS (CDN / S3 / ALB / EC2 / RDS)' },
+  { label: 'Infrastucture', value: 'Terraform , Kubernetes , Jenkins , Prometheus , Grafana' },
 ];
 
 export const FEATURE_CARDS: FeatureCard[] = [
@@ -128,7 +132,7 @@ export const RESPONSIBILITY_CATEGORIES: ResponsibilityCategory[] = [
       'Structured strict route tables separating public internet access from isolated data tiers',
       'Enabled sticky sessions on ALB to support WebRTC signaling connection affinity',
     ],
-    awsServices: ['ALB', 'NAT Gateway', 'Route 53', 'ACM (SSL/TLS)', 'Security Groups'],
+    awsServices: ['ALB', 'NAT Gateway', 'GoDaddy', 'ACM (SSL/TLS)', 'Security Groups'],
   },
   {
     id: 'security',
@@ -171,13 +175,81 @@ export const RESPONSIBILITY_CATEGORIES: ResponsibilityCategory[] = [
   },
 ];
 
+export const FULL_STACK_CATEGORIES: ResponsibilityCategory[] = [
+  {
+    id: 'frontend',
+    number: '01',
+    title: 'Frontend Architecture',
+    description: 'Designed and built a highly responsive, real-time patient and doctor user interface using React and Vite.',
+    items: [
+      'Built patient dashboard with search, doctor list, scheduling, and intake form inputs',
+      'Developed doctor console with request queues, intake previews, and video call controllers',
+      'Implemented clean UI/UX with modern Tailwind CSS, Lucide icons, and responsive layouts',
+      'Created custom React hooks for device state tracking and media stream orchestration',
+    ],
+    awsServices: ['React', 'Vite', 'Tailwind CSS', 'Lucide React', 'React Hooks'],
+  },
+  {
+    id: 'backend',
+    number: '02',
+    title: 'Backend Services',
+    description: 'Architected robust REST APIs and stateful session signaling coordinator with Node.js and Express.',
+    items: [
+      'Structured RESTful API endpoints for user auth, appointment requests, and schedule query logs',
+      'Built real-time WebRTC signaling coordinator managing SDP handshake exchanges and room states',
+      'Implemented secure JWT verification middlewares for route-level access control',
+      'Configured CORS and body-parser middleware to process inbound payload traffic',
+    ],
+    awsServices: ['Node.js', 'Express', 'JWT Auth', 'WebSockets', 'REST APIs'],
+  },
+  {
+    id: 'database',
+    number: '03',
+    title: 'Database & ORM',
+    description: 'Designed relational database schemas and optimized data queries with Prisma ORM and PostgreSQL.',
+    items: [
+      'Designed relational schemas for Patients, Doctors, Consultations, and Digital Prescriptions',
+      'Utilized Prisma client for type-safe queries and auto-generated database migration scripts',
+      'Optimized relational joins and index keys to enable low-latency dashboard loads',
+      'Configured connection pooling constraints to prevent database access contention',
+    ],
+    awsServices: ['PostgreSQL', 'Prisma ORM', 'Relational Schemas', 'Query Tuning'],
+  },
+  {
+    id: 'webrtc',
+    number: '04',
+    title: 'WebRTC Media Engine',
+    description: 'Integrated native browser WebRTC APIs to negotiate peer-to-peer audio and video transmission.',
+    items: [
+      'Orchestrated RTCPeerConnection instances for direct client-to-client signaling negotiation',
+      'Managed audio/video track addition, dynamic device switching, and media control states',
+      'Handled ICE candidates gathering and connection state changes (connecting, connected, disconnected)',
+      'Implemented fallback handling and local/remote stream rendering overlays',
+    ],
+    awsServices: ['WebRTC', 'P2P Media', 'SDP / ICE', 'VP8 / Opus', 'Navigator APIs'],
+  },
+  {
+    id: 'testing',
+    number: '05',
+    title: 'API & Integration Testing',
+    description: 'Established comprehensive testing strategies for API endpoints and WebRTC media streams.',
+    items: [
+      'Tested API request payloads, authentication boundaries, and state transitions',
+      'Conducted WebRTC media loopback tests to measure latency and frame stability',
+      'Verified mobile device compatibility (React Native compatibility and responsive web screens)',
+      'Created mock state datasets to validate database migrations and schema updates',
+    ],
+    awsServices: ['Postman', 'Chrome DevTools', 'Responsive Testing', 'Mock Datasets'],
+  },
+];
+
 export const AWS_LAYERS: AwsLayer[] = [
   {
     id: 'edge',
     name: 'Edge & Content Delivery Layer',
     description: 'Manages incoming user requests, SSL termination, and static asset distribution close to end users.',
     services: [
-      { name: 'Route 53', icon: 'Globe', type: 'DNS', details: 'Latency-based routing & health-check DNS records for app domain.' },
+      { name: 'GoDaddy', icon: 'Globe', type: 'DNS', details: 'Domain registrar & DNS routing configuration for app domain.' },
       { name: 'CloudFront', icon: 'Zap', type: 'CDN', details: 'Global edge distribution caching React frontend bundle from S3.' },
       { name: 'Amazon S3', icon: 'Database', type: 'Storage', details: 'Encrypted storage bucket hosting static web application builds.' },
       { name: 'AWS ACM', icon: 'ShieldCheck', type: 'SSL/TLS', details: 'Free managed TLS certificates attached to CloudFront & ALB.' },
@@ -386,7 +458,7 @@ export const TIMELINE_STAGES: TimelineStage[] = [
     whatChanged: 'Added AWS Application Load Balancer (ALB) across 2 Availability Zones and attached AWS ACM SSL/TLS certificates.',
     whyItChanged: 'Secured WebRTC HTTPS signaling requirement and enabled health-check backed load distribution.',
     outcome: 'Full TLS 1.3 encryption, automatic health checks, and smooth HTTPS signaling for WebRTC.',
-    techAdded: ['AWS ALB', 'AWS ACM (SSL)', 'Route 53', 'Target Groups'],
+    techAdded: ['AWS ALB', 'AWS ACM (SSL)', 'GoDaddy', 'Target Groups'],
   },
   {
     phase: 'Phase 05',
@@ -511,6 +583,58 @@ export const GALLERY_ITEMS: GalleryItem[] = [
       { label: 'Status', value: 'OK (Green)' },
     ],
   },
+  {
+    id: 'imageproof-auth',
+    category: 'application',
+    title: 'Docco Authentication Interface',
+    caption: 'Verified login screen utilizing secure credential verification mechanisms.',
+    fullDescription: 'Screenshot demonstrating the user registration/login page with JWT credential parsing and frontend validation.',
+    imageUrl: '/imageproof/auth.png',
+    tags: ['Authentication', 'JWT Token', 'Login Interface'],
+    technicalDetails: [
+      { label: 'Encryption', value: 'bcrypt' },
+      { label: 'Auth Token', value: 'JSON Web Token' }
+    ],
+  },
+  {
+    id: 'imageproof-profile',
+    category: 'application',
+    title: 'Docco Patient Profile Dashboard',
+    caption: 'Interactive patient dashboard panel showing consultation records and medical details.',
+    fullDescription: 'Detailed patient view aggregating complete clinical consultation history, scheduled appointments, and dynamic digital prescriptions.',
+    imageUrl: '/imageproof/profile.png',
+    tags: ['Dashboard', 'Patient UI', 'Medical History'],
+    technicalDetails: [
+      { label: 'Framework', value: 'React' },
+      { label: 'Database', value: 'PostgreSQL' }
+    ],
+  },
+  {
+    id: 'imageproof-finddoc',
+    category: 'application',
+    title: 'Docco Doctor Finder Portal',
+    caption: 'Search page displaying qualified clinical specialists and active availability slots.',
+    fullDescription: 'Specialist query portal allowing users to filter doctors by department, experience, and real-time appointment availability.',
+    imageUrl: '/imageproof/finddoc.png',
+    tags: ['Search', 'Doctor List', 'Availability'],
+    technicalDetails: [
+      { label: 'Data Model', value: 'Prisma Client' },
+      { label: 'Search Index', value: 'SQL Indexed' }
+    ],
+  },
+  {
+    id: 'imageproof-book',
+    category: 'application',
+    title: 'Consultation Booking Handshake',
+    caption: 'Scheduling panel confirmation window for booking requests.',
+    fullDescription: 'Appointment schedule calendar where patients request slot times and doctors review raw medical intake histories.',
+    imageUrl: '/imageproof/book.png',
+    tags: ['Booking', 'Scheduling', 'Intake Notes'],
+    technicalDetails: [
+      { label: 'State Engine', value: 'REST API' },
+      { label: 'Database ORM', value: 'Prisma Schema' }
+    ],
+  },
 ];
 
 export const DEEP_DIVE_TOPICS: DeepDiveTopic[] = [
@@ -541,10 +665,11 @@ export const DEEP_DIVE_TOPICS: DeepDiveTopic[] = [
 ];
 
 export const CONTACT_LINKS = {
-  mediumArticle: 'https://medium.com/@ashrox6464/docco-building-a-real-time-webrtc-doctor-consultation-platform-on-aws-9128374a',
-  githubRepo: 'https://github.com/ashrox6464/docco-aws-infrastructure',
+  mediumArticle: 'https://medium.com/@adapalasriharshareddy/docco-building-a-real-time-webrtc-doctor-consultation-platform-on-aws-e802ba501a11?sharedUserId=adapalasriharshareddy',
+  githubRepo: 'https://github.com/Sriharshareddy6464/Doctor-Patient-App2',
+  githubProfile: 'https://github.com/Sriharshareddy6464',
   liveApp: 'https://docco-app.com',
-  portfolio: 'https://ashrox.dev',
-  linkedin: 'https://linkedin.com/in/ashrox',
-  email: 'ashrox6464@gmail.com',
+  portfolio: 'https://www.adapalasriharshareddy.online/',
+  linkedin: 'https://www.linkedin.com/in/sriharshareddy-adapala-781a76299/',
+  email: 'adapalasriharshareddy@gmail.com',
 };

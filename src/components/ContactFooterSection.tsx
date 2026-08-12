@@ -1,9 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Github, FileText, Globe, Linkedin, Mail, Copy, Check, ExternalLink, Code2, Server, ShieldCheck } from 'lucide-react';
 import { CONTACT_LINKS } from '../data/caseStudyData';
 
 export const ContactFooterSection: React.FC = () => {
   const [copiedEmail, setCopiedEmail] = useState<boolean>(false);
+  const [portfolioBtnText, setPortfolioBtnText] = useState<string>('AUTHOR PORTFOLIO');
+
+  useEffect(() => {
+    const textInterval = setInterval(() => {
+      setPortfolioBtnText((prev) =>
+        prev === 'AUTHOR PORTFOLIO' ? 'ADAPALASRIHARSHAREDDY.ONLINE' : 'AUTHOR PORTFOLIO'
+      );
+    }, 2000);
+    return () => clearInterval(textInterval);
+  }, []);
 
   const handleCopyEmail = () => {
     navigator.clipboard.writeText(CONTACT_LINKS.email);
@@ -12,7 +22,7 @@ export const ContactFooterSection: React.FC = () => {
   };
 
   return (
-    <footer id="contact" className="border-t border-slate-800 bg-slate-950 pt-20 pb-12 px-4 sm:px-6 lg:px-8 relative">
+    <footer id="contact" className="bg-[#0A0A0B] pt-20 pb-12 px-4 sm:px-6 lg:px-8 relative">
       <div className="max-w-7xl mx-auto space-y-16">
         {/* Section 12: LINKS / CONTACT Header */}
         <div className="space-y-4 max-w-3xl">
@@ -63,10 +73,10 @@ export const ContactFooterSection: React.FC = () => {
               <ExternalLink className="w-4 h-4 text-slate-500 group-hover:text-white transition-colors" />
             </div>
             <h3 className="text-lg font-bold text-white group-hover:text-[#FF9900] transition-colors">
-              GitHub Infrastructure Repository
+              GitHub Project Repository
             </h3>
             <p className="text-xs text-slate-400 leading-relaxed font-mono">
-              Explore source code, Docker configs, and Terraform IaC definitions.
+              Explore frontend / backend source code, WebRTC logic, and Docker configs.
             </p>
           </a>
 
@@ -109,16 +119,6 @@ export const ContactFooterSection: React.FC = () => {
               {copiedEmail ? <Check className="w-4 h-4 text-[#FF9900]" /> : <Copy className="w-4 h-4 text-[#FF9900]" />}
               {copiedEmail ? 'EMAIL COPIED!' : CONTACT_LINKS.email}
             </button>
-
-            <a
-              href={CONTACT_LINKS.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-4 py-2.5 bg-[#FF9900] hover:bg-[#e68a00] text-black rounded-xl text-xs font-mono font-bold flex items-center gap-2 transition-all cursor-pointer"
-            >
-              <Linkedin className="w-4 h-4 fill-black" />
-              LINKEDIN PROFILE
-            </a>
           </div>
         </div>
 
@@ -141,6 +141,26 @@ export const ContactFooterSection: React.FC = () => {
               <span className="text-[#FF9900] font-bold block">
                 AWS DevOps Engineer — Infrastructure & Operational Engineering
               </span>
+              <a
+                href={CONTACT_LINKS.portfolio}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-3 px-4 py-2.5 bg-white/5 text-[#FF9900] border border-[#FF9900]/30 hover:border-[#FF9900] hover:bg-[#FF9900] hover:text-black rounded-xl text-xs font-mono font-bold flex items-center gap-2 transition-all cursor-pointer w-[290px] justify-center uppercase"
+              >
+                <Globe className="w-4 h-4" />
+                {portfolioBtnText}
+              </a>
+              <div className="flex items-center gap-[100px] mt-4 text-[#FF9900]">
+                <a href={CONTACT_LINKS.githubProfile} target="_blank" rel="noopener noreferrer" title="GitHub Profile">
+                  <Github className="w-5 h-5 hover:text-[#e68a00] hover:scale-110 transition-all" />
+                </a>
+                <a href={CONTACT_LINKS.linkedin} target="_blank" rel="noopener noreferrer" title="LinkedIn Profile">
+                  <Linkedin className="w-5 h-5 hover:text-[#e68a00] hover:scale-110 transition-all" />
+                </a>
+                <a href={CONTACT_LINKS.mediumArticle} target="_blank" rel="noopener noreferrer" title="Medium Technical Article">
+                  <FileText className="w-5 h-5 hover:text-[#e68a00] hover:scale-110 transition-all" />
+                </a>
+              </div>
             </div>
 
             {/* Footer Navigation */}
@@ -168,7 +188,10 @@ export const ContactFooterSection: React.FC = () => {
               </span>
               <div className="space-y-1.5 text-slate-400 text-[11px]">
                 <a href={CONTACT_LINKS.githubRepo} target="_blank" rel="noopener noreferrer" className="hover:text-[#FF9900] transition-colors flex items-center gap-1">
-                  GitHub Repository ↗
+                  GitHub Project Repository ↗
+                </a>
+                <a href={CONTACT_LINKS.githubProfile} target="_blank" rel="noopener noreferrer" className="hover:text-[#FF9900] transition-colors flex items-center gap-1">
+                  GitHub Profile ↗
                 </a>
                 <a href={CONTACT_LINKS.mediumArticle} target="_blank" rel="noopener noreferrer" className="hover:text-[#FF9900] transition-colors flex items-center gap-1">
                   Medium Article ↗
