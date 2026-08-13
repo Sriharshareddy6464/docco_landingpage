@@ -193,6 +193,9 @@ export const ContactFooterSection: React.FC = () => {
                 <a href={CONTACT_LINKS.githubProfile} target="_blank" rel="noopener noreferrer" className="hover:text-[#FF9900] transition-colors flex items-center gap-1">
                   GitHub Profile ↗
                 </a>
+                <a href={CONTACT_LINKS.notion} target="_blank" rel="noopener noreferrer" className="hover:text-[#FF9900] transition-colors flex items-center gap-1">
+                  Notion Platform Documentation ↗
+                </a>
                 <a href={CONTACT_LINKS.mediumArticle} target="_blank" rel="noopener noreferrer" className="hover:text-[#FF9900] transition-colors flex items-center gap-1">
                   Medium Article ↗
                 </a>

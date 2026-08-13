@@ -668,8 +668,9 @@ export const CONTACT_LINKS = {
   mediumArticle: 'https://medium.com/@adapalasriharshareddy/docco-building-a-real-time-webrtc-doctor-consultation-platform-on-aws-e802ba501a11?sharedUserId=adapalasriharshareddy',
   githubRepo: 'https://github.com/Sriharshareddy6464/Doctor-Patient-App2',
   githubProfile: 'https://github.com/Sriharshareddy6464',
-  liveApp: 'https://docco-app.com',
+  liveApp: 'https://docco.aeora.dev',
   portfolio: 'https://www.adapalasriharshareddy.online/',
   linkedin: 'https://www.linkedin.com/in/sriharshareddy-adapala-781a76299/',
   email: 'adapalasriharshareddy@gmail.com',
+  notion: 'https://app.notion.com/p/Doctor-on-Call-Cloud-Native-Telehealth-Platform-Documentation-5e00d1ea3d1e4b098db07888d04aad73'
 };

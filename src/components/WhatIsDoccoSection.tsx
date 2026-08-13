@@ -175,9 +175,9 @@ export const WhatIsDoccoSection: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
             <div className="md:col-span-7 rounded-xl overflow-hidden border border-white/10 shadow-xl relative group">
               <img
-                src="https://images.unsplash.com/photo-1584982751601-97dcc096659c?q=80&w=1000&auto=format&fit=crop"
-                alt="Docco Doctor Portal Mockup"
-                className="w-full h-72 object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                src="/imageproof/telemedicine_figma_wireframe.jpg"
+                alt="Docco Mobile Figma Wireframe"
+                className="w-full h-96 object-cover object-center group-hover:scale-102 transition-transform duration-500"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent" />
               <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between text-xs font-mono">

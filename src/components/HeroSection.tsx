@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { Play, Network, FileText, Server, Video, Activity, Shield, CheckCircle2, ChevronDown } from 'lucide-react';
+import { Play, Network, FileText, Server, Video, Activity, Shield, CheckCircle2, ChevronDown, Wifi, Github } from 'lucide-react';
 import { HERO_META, CONTACT_LINKS } from '../data/caseStudyData';
 
 interface HeroSectionProps {
@@ -20,17 +20,19 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
 
       <div className="max-w-7xl mx-auto w-full pt-8 pb-12">
         {/* Top Eyebrow & Badges */}
-        <div className="flex flex-wrap items-center gap-3 mb-6">
-          <span className="px-3 py-1 text-xs font-mono tracking-widest text-[#FF9900] bg-[#FF9900]/10 border border-[#FF9900]/30 rounded-md uppercase font-semibold">
-            PROJECT CASE STUDY
-          </span>
+        <div className="flex flex-wrap items-center justify-between gap-3 mb-6">
+          <div className="flex flex-wrap items-center gap-3">
+            <span className="px-3 py-1 text-xs font-mono tracking-widest text-[#FF9900] bg-[#FF9900]/10 border border-[#FF9900]/30 rounded-md uppercase font-semibold">
+              PROJECT CASE STUDY
+            </span>
 
-          <div className="flex items-center gap-2 px-3 py-1 bg-[#FF9900]/10 border border-[#FF9900]/30 rounded-md text-[#FF9900] text-xs font-mono font-medium">
-            <span className="w-2 h-2 rounded-full bg-[#FF9900] pulse-live" />
-            <span className="font-semibold">AWS DEVOPS ENGINEER</span>
+            <div className="flex items-center gap-2 px-3 py-1 bg-[#FF9900]/10 border border-[#FF9900]/30 rounded-md text-[#FF9900] text-xs font-mono font-medium">
+              <span className="w-2 h-2 rounded-full bg-[#FF9900] pulse-live" />
+              <span className="font-semibold">AWS DEVOPS ENGINEER</span>
+            </div>
           </div>
 
-          <span className="text-xs font-mono text-slate-400 hidden sm:inline-block items-right text-right">
+          <span className="text-xs font-mono text-slate-400 hidden sm:inline-block text-right ml-auto">
             Infrastructure • Deployment • Networking • Security • Observability
           </span>
         </div>
@@ -38,9 +40,20 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
         {/* Hero Title & Subtitle */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-7 space-y-6">
-            <h1 className="text-5xl sm:text-7xl font-extrabold tracking-tight text-white leading-none">
-              Docco<span className="text-[#FF9900]">.</span>
-            </h1>
+            <div className="flex flex-row items-center justify-between gap-6">
+              <h1 className="text-5xl sm:text-7xl font-extrabold tracking-tight text-white leading-none">
+                Docco<span className="text-[#FF9900]">.</span>
+              </h1>
+              <a
+                href={CONTACT_LINKS.githubRepo}
+                target="_blank"
+                rel="noopener noreferrer"
+                title="View GitHub Repository"
+                className="w-[100px] h-[100px] rounded-2xl bg-white/5 border border-[#FF9900]/30 hover:border-[#FF9900] hover:bg-[#FF9900] hover:text-black flex items-center justify-center text-[#FF9900] transition-all cursor-pointer shadow-lg hover:shadow-[#FF9900]/20 z-10 shrink-0"
+              >
+                <Github className="w-16 h-16" />
+              </a>
+            </div>
 
             <p className="text-2xl sm:text-3xl font-semibold text-slate-200 tracking-tight leading-snug">
               Real-Time Doctor Consultation, Built not just for the Web .
@@ -54,7 +67,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             <div className="flex flex-wrap items-center gap-4 pt-2">
               <button
                 onClick={onWatchClick}
-                className="px-6 py-3.5 bg-[#FF9900] hover:bg-[#e68a00] text-black font-bold text-sm tracking-wide rounded-lg flex items-center gap-2 shadow-lg shadow-[#FF9900]/20 transition-all cursor-pointer"
+                className="px-6 py-3.5 bg-[#FF9900] hover:bg-[#e68a00] text-black font-bold text-sm tracking-wide rounded-lg flex items-center gap-2 shadow-lg shadow-[#FF9900]/20 transition-all cursor-pointer font-sans"
               >
                 <Play className="w-4 h-4 fill-black" />
                 WATCH PROTOTYPE DEMO
@@ -62,7 +75,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
 
               <button
                 onClick={onExploreArchitectureClick}
-                className="px-6 py-3.5 bg-white/5 hover:bg-white/10 text-white font-semibold text-sm tracking-wide rounded-lg border border-white/10 flex items-center gap-2 transition-all cursor-pointer"
+                className="px-6 py-3.5 bg-white/5 hover:bg-white/10 text-white font-semibold text-sm tracking-wide rounded-lg border border-white/10 flex items-center gap-2 transition-all cursor-pointer font-sans"
               >
                 <Network className="w-4 h-4 text-[#FF9900]" />
                 EXPLORE ARCHITECTURE
@@ -72,10 +85,20 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                 href={CONTACT_LINKS.mediumArticle}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-5 py-3.5 text-slate-300 hover:text-[#FF9900] font-mono text-xs tracking-wide flex items-center gap-1.5 transition-colors"
+                className="px-4 py-3.5 text-slate-300 hover:text-[#FF9900] font-mono text-xs tracking-wide flex items-center gap-1 transition-colors"
               >
                 <FileText className="w-4 h-4 text-[#FF9900]" />
                 Medium Blog <span className="text-slate-500">↗</span>
+              </a>
+
+              <a
+                href={CONTACT_LINKS.notion}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-4 py-3.5 text-slate-300 hover:text-[#FF9900] font-mono text-xs tracking-wide flex items-center gap-1 transition-colors"
+              >
+                <FileText className="w-4 h-4 text-[#FF9900]" />
+                Notion Docs <span className="text-slate-500">↗</span>
               </a>
             </div>
 
@@ -95,80 +118,86 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             </div>
           </div>
 
-          {/* Hero Visual - Docco App Consultation Visual Mockup */}
-          <div className="lg:col-span-5">
-            <div className="relative rounded-2xl glass-panel p-3 border border-white/10 shadow-2xl overflow-hidden group">
-              <div className="absolute top-0 right-0 px-3 py-1 bg-[#FF9900]/10 border-b border-l border-[#FF9900]/30 text-[#FF9900] font-mono text-[10px] rounded-bl-lg font-semibold z-10 flex items-center gap-1.5">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#FF9900] animate-ping" />
-                LIVE WEBRTC ROOM
+          {/* Hero Visual - Docco App Consultation Visual Mockup (Mobile View) */}
+          <div className="lg:col-span-5 flex justify-center">
+            <div className="relative border-[8px] border-slate-800 bg-slate-950 rounded-[40px] w-[290px] h-[580px] shadow-2xl overflow-hidden group flex flex-col justify-between">
+              {/* Notch / Speaker */}
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-4 bg-slate-800 rounded-b-xl z-20 flex items-center justify-center">
+                <div className="w-2 h-2 rounded-full bg-slate-900 mr-2" />
+                <div className="w-10 h-1 bg-slate-900 rounded" />
+              </div>
+
+              {/* Status Bar */}
+              <div className="absolute top-1 left-0 right-0 px-5 flex items-center justify-between text-slate-400 font-mono text-[9px] z-10">
+                <span>9:41</span>
+                <div className="flex items-center gap-1.5">
+                  <Wifi className="w-3 h-3 text-[#FF9900]" />
+                  <span>5G</span>
+                </div>
               </div>
 
               {/* Simulated Consultation Window */}
-              <div className="bg-slate-950 rounded-xl border border-slate-800 overflow-hidden shadow-inner">
-                {/* Simulated Header Bar */}
-                <div className="px-4 py-2.5 bg-slate-900/90 border-b border-slate-800 flex items-center justify-between text-xs">
-                  <div className="flex items-center gap-2">
-                    <span className="w-2.5 h-2.5 rounded-full bg-red-500/80" />
-                    <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/80" />
-                    <span className="w-2.5 h-2.5 rounded-full bg-green-500/80" />
-                    <span className="text-slate-400 font-mono text-[11px] ml-2">docco.app/consultation/room-892</span>
-                  </div>
-                  <span className="px-2 py-0.5 rounded bg-emerald-950 text-emerald-400 font-mono text-[10px] font-bold">
-                    P2P ENCRYPTED
-                  </span>
-                </div>
-
-                {/* Simulated Main Video View */}
-                <div className="relative aspect-video bg-slate-900 flex items-center justify-center overflow-hidden">
+              <div className="flex-1 flex flex-col justify-between pt-6 relative">
+                {/* Doctor Full Screen Video View */}
+                <div className="absolute inset-0 bg-slate-900 overflow-hidden">
                   <img
                     src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=800&auto=format&fit=crop"
                     alt="Doctor Consultation Preview"
-                    className="w-full h-full object-cover opacity-85 group-hover:scale-105 transition-transform duration-700"
+                    className="w-full h-full object-cover opacity-90 group-hover:scale-105 transition-transform duration-700"
                   />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-black/30" />
+                </div>
 
-                  {/* Doctor Info Badge */}
-                  <div className="absolute top-3 left-3 px-3 py-1.5 rounded-lg bg-slate-950/80 backdrop-blur-md border border-slate-800 flex items-center gap-2">
-                    <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                {/* Doctor Info Overlay (Top) */}
+                <div className="relative z-10 px-4 pt-3 flex items-center justify-between">
+                  <div className="px-2.5 py-1 rounded-lg bg-black/60 backdrop-blur-md border border-white/10 flex items-center gap-1.5">
+                    <div className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
                     <div>
-                      <span className="text-xs font-semibold text-white block leading-none">Dr. Sarah Jenkins</span>
-                      <span className="text-[10px] text-[#FF9900] font-mono">Cardiology Provider</span>
+                      <span className="text-[10px] font-semibold text-white block leading-none font-sans">Dr. Sarah Jenkins</span>
+                      <span className="text-[8px] text-[#FF9900] font-mono">Cardiology</span>
                     </div>
                   </div>
+                  <span className="px-1.5 py-0.5 rounded bg-emerald-950/85 border border-emerald-500/30 text-emerald-400 font-mono text-[8px] font-bold">
+                    SECURE P2P
+                  </span>
+                </div>
 
-                  {/* Patient PIP Thumbnail */}
-                  <div className="absolute bottom-3 right-3 w-28 h-20 rounded-lg bg-black/90 border border-white/10 overflow-hidden shadow-lg">
-                    <img
-                      src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=300&auto=format&fit=crop"
-                      alt="Patient Feed"
-                      className="w-full h-full object-cover"
-                    />
-                    <div className="absolute bottom-1 left-1 px-1 bg-black/70 rounded text-[9px] font-mono text-slate-300">
-                      Patient (You)
+                {/* Bottom Overlay Widgets */}
+                <div className="relative z-10 px-4 pb-4 space-y-3">
+                  {/* Patient PIP Thumbnail (Floating above stats) */}
+                  <div className="flex justify-end">
+                    <div className="w-20 h-28 rounded-xl border border-white/10 overflow-hidden shadow-lg bg-black relative">
+                      <img
+                        src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=300&auto=format&fit=crop"
+                        alt="Patient Feed"
+                        className="w-full h-full object-cover"
+                      />
+                      <div className="absolute bottom-1 left-1 px-1 bg-black/70 rounded text-[8px] font-mono text-slate-300">
+                        You
+                      </div>
                     </div>
                   </div>
 
                   {/* Active Media Stats Banner */}
-                  <div className="absolute bottom-3 left-3 px-2.5 py-1 rounded bg-black/90 border border-white/10 text-[10px] font-mono text-slate-300 flex items-center gap-3">
-                    <span className="text-emerald-400 font-semibold">1280x720 30fps</span>
-                    <span className="text-slate-500">|</span>
-                    <span>VP8 / Opus</span>
-                    <span className="text-slate-500">|</span>
-                    <span className="text-[#FF9900]">RTT: 22ms</span>
+                  <div className="px-2 py-1 rounded-lg bg-black/80 border border-white/10 text-[9px] font-mono text-slate-300 flex items-center justify-between">
+                    <span className="text-emerald-400 font-semibold">HD 30fps</span>
+                    <span className="text-slate-600">|</span>
+                    <span>VP8/Opus</span>
+                    <span className="text-slate-600">|</span>
+                    <span className="text-[#FF9900] font-bold">22ms</span>
                   </div>
-                </div>
 
-                {/* Call Control Strip */}
-                <div className="p-3 bg-black/40 border-t border-white/10 flex items-center justify-between">
-                  <div className="flex items-center gap-2 text-[11px] text-slate-400 font-mono">
-                    <Video className="w-3.5 h-3.5 text-[#FF9900]" />
-                    <span>WebRTC Direct Stream</span>
-                  </div>
-                  <div className="flex items-center gap-2">
+                  {/* Call Control Strip */}
+                  <div className="p-2 rounded-xl bg-black/60 backdrop-blur-sm border border-white/10 flex items-center justify-between">
+                    <div className="flex items-center gap-1.5 text-[9px] text-slate-300 font-mono">
+                      <Video className="w-3.5 h-3.5 text-[#FF9900]" />
+                      <span>WebRTC Live</span>
+                    </div>
                     <button
                       onClick={onWatchClick}
-                      className="px-3 py-1 rounded bg-[#FF9900]/10 hover:bg-[#FF9900]/20 border border-[#FF9900]/30 text-[#FF9900] font-mono text-xs font-semibold flex items-center gap-1.5 cursor-pointer"
+                      className="px-2.5 py-1 rounded-lg bg-[#FF9900] hover:bg-[#e68a00] text-black font-mono text-[10px] font-extrabold flex items-center gap-1 cursor-pointer transition-colors"
                     >
-                      <Play className="w-3 h-3" /> Demo Walkthrough
+                      <Play className="w-2.5 h-2.5 fill-black" /> DEMO
                     </button>
                   </div>
                 </div>
